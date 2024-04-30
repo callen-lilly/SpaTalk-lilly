@@ -765,6 +765,7 @@
     }
     names(cell_pair) <- cell_sender$cell
     cell_pair <- as.data.frame(cell_pair, stringsAsFactors = F)
+    colnames(cell_pair) <- cell_sender$cell
     cell_pair <- reshape2::melt(cell_pair, measure.vars = colnames(cell_pair), variable.name = "cell_sender", value.name = "cell_receiver")
     cell_pair$cell_sender <- as.character(cell_pair$cell_sender)
     cell_pair <- cell_pair[cell_pair$cell_receiver %in% cell_receiver$cell, ]
